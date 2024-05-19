@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloomFlow</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <!--  <link rel="stylesheet" href="{% static '/css/style.css' %}">-->
+    <link rel="stylesheet" href="{% static '/css/style_index_final.css' %}">
+    <link rel="stylesheet" href="{% static '/css/groups.css' %}">
+    <!-- Favicon -->
+    <link rel="icon" href="{% static '/js_template/img/core-img/favicon.ico' %}">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static '/js_template/style.css' %}">
+    <!--     <link rel="stylesheet" href="{% static 'css/profile_final.css' %}">-->
+    <!--<link rel="stylesheet" href="{% static 'css/activity.css' %}">-->
+</head>
+
+<body>
+<!-- Preloader -->
+<div class="preloader d-flex align-items-center justify-content-center">
+    <div class="preloader-circle"></div>
+    <div class="preloader-img">
+        <img src="img/core-img/leaf.png" alt="">
+    </div>
+</div>
+
+<!-- ##### Header Area Start ##### -->
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <div class="logo">
+            <h1 class="text-light"><a href="/app1/index"><span>BloomFlow</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <!--        <li><a class="nav-link scrollto active" href="/app1/index">Home</a></li>-->
+                <li class="dropdown"><a href="/app1/plants"><span>Plants</span> <i
+                        class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/app1/plants">INDOOR PLANTS</a></li>
+                        <li><a href="/community/member">New Arrivals</a></li>
+                        <li><a href="/community/group">End of Season Sale</a></li>
+                        <li><a href="/community/group">Low-Maintenance Plants</a></li>
+                        <li><a href="/community/group">Low Light Houseplants</a></li>
+                        <li><a href="/community/group">Large + XL Plants</a></li>
+                        <li><a href="/community/group">Last Chance Sale</a></li>
+                        <li><a href="/community/group">Shop All</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" style="padding-left:0.5em"><a href="/app1/caretools"><span>Care Tools</span> <i
+                        class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/app1/caretools">CARE TOOLS</a></li>
+                        <li><a href="/community/activity">Pots</a></li>
+                        <li><a href="/community/member">Tools</a></li>
+                        <li><a href="/community/group">Supplies</a></li>
+                        <li><a href="/community/group">Decor + Accessories</a></li>
+                        <li><a href="/community/group">Last Chance Sale</a></li>
+                        <li><a href="/community/group">Shop All</a></li>
+                    </ul>
+
+
+                </li>
+                <li class="dropdown" style="padding-left:0.5em"><a href="/app1/gifts"><span>Gifts</span> <i
+                        class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/app1/gifts">THE GIFT SHOP</a></li>
+                        <li><a href="/community/member">Gifts Under 499/-</a></li>
+                        <li><a href="/community/group">Gifts Between 499/- to 999/-</a></li>
+                        <li><a href="/community/group">Gifts Over 1499/-</a></li>
+                        <li><a href="/community/group">Plant Care Gift Sets</a></li>
+                        <li><a href="/community/group">E-GIFT CARDS</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" style="padding-left:0.5em"><a href="/app1/learn"><span>Learn</span> <i
+                        class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/app1/learn">A-Z CARE GUIDES</a></li>
+                        <li><a href="/community/member">INDOOR PLANT CARE</a></li>
+                        <li><a href="/community/group">GREEN LIVING</a></li>
+                        <li><a href="/community/group">WINTER PLANT CARE</a></li>
+                    </ul>
+                </li>
+
+                {% if user.is_authenticated %}
+
+
+                <li style="padding-left:11em"><a class="getstarted signUp scrollto" href="/app1/profile/">Profile</a>
+                </li>
+                <li><a class="getstarted signUp scrollto" href="/app1/logout">Logout</a></li>
+                {% else %}
+                <li style="padding-left:11em"><a class="getstarted signUp scrollto" href="/app1/login">Log In</a></li>
+                <li><a class="getstarted logIn scrollto" href="/app1/signup">Sign Up</a></li>
+                {% endif %}
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+<!-- ##### Header Area End ##### -->
+
+<!-- ##### Cart Area Start ##### -->
+<div class="cart-area section-padding-0-100 clearfix" style="padding-top: 110px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="cart-table clearfix">
+                    <table class="table table-responsive">
+                        <thead>
+                        <tr>
+                            <th>Products</th>
+                            <th>Quantity</th>
+                            <th></th>
+                            <th>Price</th>
+                            <th>TOTAL</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in cop %}
+                        <tr>
+                            <td class="cart_product_img">
+                                <a href="/user_images/{{ i.Image }}"><img src="/user_images/{{ i.Image }}" alt="Product"></a>
+                                <h5>{{i.Pname}}</h5>
+                            </td>
+                            <form action="{% url 'cart_add' i.id%}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <td class="qty">
+                                    <div class="quantity">
+                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty{{i.id}}'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                        <input type="text" class="qty-text" id="qty{{i.id}}" step="1" min="1" max="99" name="quantity" value="{{i.Pquantity}}">
+                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty{{i.id}}'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    </div>
+                                </td>
+                                <input type="text" hidden  name="product_id" value="{{i.id}}">
+                                <td> <input type="submit" name="submit" value="Procced" class="btn btn-sm btn-info mr-8"></td>
+                            </form>
+                            <td class="price"><span>{{i.Pprice}}</span></td>
+                            <td class="total_price"><span>{{i.Ptotal}}</span></td>
+                            <td class="action"><a href="{% url 'remove_cart' i.id %}"><i class="icon_close"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Coupon Discount -->
+            <div class="col-12 col-lg-6">
+                <div class="coupon-discount mt-70">
+                    <h5>COUPON DISCOUNT</h5>
+                    <p>Coupons can be applied in the cart prior to checkout. Add an eligible item from the booth of the seller that created the coupon code to your cart. Click the green "Apply code" button to add the coupon to your order. The order total will update to indicate the savings specific to the coupon code entered.</p>
+                    <form action="#" method="post">
+                        <input type="text" name="coupon-code" placeholder="Enter your coupon code">
+                        <button type="submit">APPLY COUPON</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Cart Totals -->
+            <div class="col-12 col-lg-6">
+                <div class="cart-totals-area mt-70">
+                    <h5 class="title--">Cart Total</h5>
+                    <div class="subtotal d-flex justify-content-between">
+                        <h5>Subtotal</h5>
+                        <h5>{{co.total}}</h5>
+                    </div>
+                    <div class="shipping d-flex justify-content-between">
+                        <h5>Shipping</h5>
+                        <div class="shipping-address">
+                            <form action="#" method="post">
+                                <input type="text" name="shipping-text" id="shipping-text" placeholder="State">
+                                <input type="text" name="shipping-zip" id="shipping-zip" placeholder="ZIP">
+                                <button type="submit">Update Total</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="total d-flex justify-content-between">
+                        <h5>Total</h5>
+                        <h5>{{co.total}}</h5>
+                    </div>
+                    <div class="checkout-btn">
+                        <a href="{% url 'placeorder' %}" class="btn alazea-btn w-100">PROCEED TO CHECKOUT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- ##### Cart Area End ##### -->
+
+<!-- ##### Footer Area Start ##### -->
+<footer id="footer" style="padding-top: 5rem;">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>BloomFlow</h3>
+                    <p>
+                        Ahmedabad, Gujarat, India <br><br>
+                        <strong>Phone:</strong> +91 95452 45150<br>
+                        <strong>Email:</strong> info@bloomflow.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/about_us">About</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/about">Working at Bloomflow</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Careers</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Press</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Corporate Orders</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Refer a Friend</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Our Guarantee</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>SUPPORT</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Help + FAQs</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Track Your Order</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Shipping</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Returns</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/contact_us">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>PLANT QUESTIONS?</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Plant Care Tips</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Plant Life Blog</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Contact the Grow-How™
+                            Team</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Plant Care App(future
+                            extension)</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-4">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Bloomflow</span></strong>. All Rights Reserved
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<!-- ##### Footer Area End ##### -->
+
+<!-- ##### All Javascript Files ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="{% static 'js_template/jquery/jquery-2.2.4.min.js' %}"></script>
+<!-- Popper js -->
+<script src="{% static 'js_template/bootstrap/popper.min.js' %}"></script>
+<!-- Bootstrap js -->
+<script src="{% static 'js_template/bootstrap/bootstrap.min.js' %}"></script>
+<!-- All Plugins js -->
+<script src="{% static 'js_template/plugins/plugins.js' %}"></script>
+<!-- Active js -->
+<script src="{% static 'js_template/active.js' %}"></script>
+
+</body>
+
+</html>

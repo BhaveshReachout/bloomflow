@@ -1,0 +1,67 @@
+body{
+    background:  #f8fafb;
+}
+.card{
+    background:  #ffffff9c !important;
+
+}
+
+.card-profile-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+  
+  .card-profile-image img {
+    position: relative;
+
+    max-width: 100px;
+    max-height: 100px;
+    width: 100px;
+    height: 100px;
+    transition: all .15s ease;
+    border-radius: .375rem;
+    object-fit: cover;
+  }
+
+  .my-btn:hover{
+      background: #38d39f !important;
+      border: none;
+  }
+
+  
+.section-title {
+    margin-top: 5rem;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 0;
+  line-height: 1px;
+  margin-bottom: 15px;
+  color: #a3a3a3;
+}
+
+.section-title p {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  font-size: 32px;
+  font-weight: 700;
+  color: #4e4039;
+}
+
+.section-title p::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #eb5d1e;
+  bottom: 0;
+  left: calc(50% - 30px);
+}

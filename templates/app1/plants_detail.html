@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloomFlow</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <!--  <link rel="stylesheet" href="{% static '/css/style.css' %}">-->
+    <link rel="stylesheet" href="{% static '/css/style_index_final.css' %}">
+    <link rel="stylesheet" href="{% static '/css/groups.css' %}">
+    <!-- Favicon -->
+    <link rel="icon" href="{% static '/js_template/img/core-img/favicon.ico' %}">
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static '/js_template/style.css' %}">
+    <!--     <link rel="stylesheet" href="{% static 'css/profile_final.css' %}">-->
+    <!--<link rel="stylesheet" href="{% static 'css/activity.css' %}">-->
+</head>
+
+
+<body>
+<!-- Preloader -->
+<div class="preloader d-flex align-items-center justify-content-center">
+    <div class="preloader-circle"></div>
+    <div class="preloader-img">
+        <img src="{% static '/js_template/img/core-img/leaf.png' %}" alt="">
+    </div>
+</div>
+
+<!-- ##### Header Area Start ##### -->
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <div class="logo">
+            <h1 class="text-light"><a href="/app1/index"><span>BloomFlow</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <!--        <li><a class="nav-link scrollto active" href="/app1/index">Home</a></li>-->
+                <li class="dropdown"><a href="/app1/plants"><span>Plants</span> <i
+                        class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/app1/plants">INDOOR PLANTS</a></li>
+                        <li><a href="/community/member">New Arrivals</a></li>
+                        <li><a href="/community/group">End of Season Sale</a></li>
+                        <li><a href="/community/group">Low-Maintenance Plants</a></li>
+                        <li><a href="/community/group">Low Light Houseplants</a></li>
+                        <li><a href="/community/group">Large + XL Plants</a></li>
+                        <li><a href="/community/group">Last Chance Sale</a></li>
+                        <li><a href="/community/group">Shop All</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" style="padding-left:0.5em"><a href="/app1/caretools"><span>Care Tools</span> <i
+                        class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/app1/caretools">CARE TOOLS</a></li>
+                        <li><a href="/community/activity">Pots</a></li>
+                        <li><a href="/community/member">Tools</a></li>
+                        <li><a href="/community/group">Supplies</a></li>
+                        <li><a href="/community/group">Decor + Accessories</a></li>
+                        <li><a href="/community/group">Last Chance Sale</a></li>
+                        <li><a href="/community/group">Shop All</a></li>
+                    </ul>
+
+
+                </li>
+                <li class="dropdown" style="padding-left:0.5em"><a href="/app1/gifts"><span>Gifts</span> <i
+                        class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/app1/gifts">THE GIFT SHOP</a></li>
+                        <li><a href="/community/member">Gifts Under 499/-</a></li>
+                        <li><a href="/community/group">Gifts Between 499/- to 999/-</a></li>
+                        <li><a href="/community/group">Gifts Over 1499/-</a></li>
+                        <li><a href="/community/group">Plant Care Gift Sets</a></li>
+                        <li><a href="/community/group">E-GIFT CARDS</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" style="padding-left:0.5em"><a href="/app1/learn"><span>Learn</span> <i
+                        class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/app1/learn">A-Z CARE GUIDES</a></li>
+                        <li><a href="/community/member">INDOOR PLANT CARE</a></li>
+                        <li><a href="/community/group">GREEN LIVING</a></li>
+                        <li><a href="/community/group">WINTER PLANT CARE</a></li>
+                    </ul>
+                </li>
+<form action="{% url 'search' %}" class="header_search_form clearfix">
+                    <li style="padding-left:11em">
+                        <!--                        <input class="getstarted signUp scrollto" value="{{ request.GET.si }}" type="text" name="si" />-->
+                        <!--                        <input class="getstarted signUp scrollto" type="submit" value="Search" />-->
+                        <input name="si" type="search"  required="required" class="header_search_input" placeholder="Search for products..."/>
+                        <button type="submit" class="header_search_button trans_300" value="Submit">search</button>
+                    </li>
+                </form>
+                <li ><a class="getstarted signUp scrollto" href="/app1/cart/"> <i class="bi bi-cart"></i></a></li>
+
+                {% if user.is_authenticated %}
+
+
+                <li ><a class="getstarted signUp scrollto" href="/app1/profile/">Profile</a>
+                </li>
+                <li><a class="getstarted signUp scrollto" href="/app1/logout">Logout</a></li>
+                {% else %}
+                <li style="padding-left:11em"><a class="getstarted signUp scrollto" href="/app1/login">Log In</a></li>
+                <li><a class="getstarted logIn scrollto" href="/app1/signup">Sign Up</a></li>
+                {% endif %}
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+<!-- ##### Header Area End ##### -->
+
+
+
+<!-- ##### Single Product Details Area Start ##### -->
+<section class="single_product_details_area mb-50">
+    <div class="produts-details--content mb-50" style="padding-top: 100px;">
+        <div class="container">
+            <div class="row justify-content-between">
+
+                <div class="col-12 col-md-6 col-lg-5">
+                    <div class="single_product_thumb">
+                        <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a class="product-img" href="/user_images/{{prod_d.Image}}" title="Product Image">
+                                        <img class="d-block w-100" src="/user_images/{{prod_d.Image}}" alt="1">
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a class="product-img" href="/user_images/{{prod_g.Image2}}" title="Product Image">
+                                        <img class="d-block w-100" src="/user_images/{{prod_g.Image2}}" alt="1">
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a class="product-img" href="/user_images/{{prod_g.Image3}}" title="Product Image">
+                                        <img class="d-block w-100" src="/user_images/{{prod_g.Image3}}" alt="1">
+                                    </a>
+                                </div>
+                            </div>
+                            <ol class="carousel-indicators">
+                                <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url(/user_images/{{prod_d.Image}});">
+                                </li>
+                                <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url(/user_images/{{prod_g.Image2}});">
+                                </li>
+                                <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url(/user_images/{{prod_g.Image3}});">
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="single_product_desc">
+                        <h4 class="title">{{prod_d.Pname}}</h4>
+                        <h4 class="price">{{prod_d.Pprice}}</h4>
+                        <div class="short_overview">
+                            <p>{{prod_d.Pdesc}}</p>
+                        </div>
+
+                        <div class="cart--area d-flex flex-wrap align-items-center">
+                            <!-- Add to Cart Form -->
+                            <form class="cart clearfix d-flex align-items-center" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                 <div class="quantity">
+                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty{{prod_d.id}}'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                        <input type="text" class="qty-text" id="qty{{prod_d.id}}" step="1" min="1" max="99" name="quantity" value="{{prod_d.Pquantity}}">
+                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty{{prod_d.id}}'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    </div>
+                                <button type="submit" name="addtocart" value="5" class="btn alazea-btn ml-15"><a href="{% url 'cart_add' prod_d.id %}">Add to cart</a></button>
+                            </form>
+                            <!-- Wishlist & Compare -->
+                            <div class="wishlist-compare d-flex flex-wrap align-items-center">
+                                <a href="#" class="wishlist-btn ml-15"><i class="icon_heart_alt"></i></a>
+                                <a href="#" class="compare-btn ml-15"><i class="arrow_left-right_alt"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="products--meta">
+                            <p><span>SKU:</span> <span>{{prod_d.Psku}}</span></p>
+                            <p><span>Category:</span> <span>{{prod_d.subcategory}}</span></p>
+                            <p><span>Tags:</span> <span>plants, green, cactus </span></p>
+                            <p>
+                                <span>Share on:</span>
+                                <span>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="product_details_tab clearfix">
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs" role="tablist" id="product-details-tab">
+                        <li class="nav-item">
+                            <a href="#description" class="nav-link active" data-toggle="tab" role="tab">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#addi-info" class="nav-link" data-toggle="tab" role="tab">Additional Information</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#reviews" class="nav-link" data-toggle="tab" role="tab">Reviews <span class="text-muted">(1)</span></a>
+                        </li>
+                    </ul>
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade show active" id="description">
+                            <div class="description_area">
+                                <p>{{prod_d.Pdesc}}</p>
+                                <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. In scelerisque augue at the moment mattis. Proin vitae arcu sit amet justo sollicitudin tincidunt sit amet ut velit.Proin placerat vel augue eget euismod. Phasellus cursus orci eu tellus vestibulum, vestibulum urna accumsan. Vestibulum ut ullamcorper sapien. Pellentesque molestie, est ac vestibulum eleifend, lorem ipsum mollis ipsum.</p>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="addi-info">
+                            <div class="additional_info_area">
+                                <p>What should I do if I receive a damaged parcel?
+                                    <br> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit impedit similique qui, itaque delectus labore.</span></p>
+                                <p>I have received my order but the wrong item was delivered to me.
+                                    <br> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis quam voluptatum beatae harum tempore, ab?</span></p>
+                                <p>Product Receipt and Acceptance Confirmation Process
+                                    <br> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ducimus, temporibus soluta impedit minus rerum?</span></p>
+                                <p>How do I cancel my order?
+                                    <br> <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum eius eum, minima!</span></p>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="reviews">
+                            <div class="reviews_area">
+                                <ul>
+                                    <li>
+                                        <div class="single_user_review mb-15">
+                                            <div class="review-rating">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <span>for Quality</span>
+                                            </div>
+                                            <div class="review-details">
+                                                <p>by <a href="#"></a> on <span>12 Sep 2018</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="single_user_review mb-15">
+                                            <div class="review-rating">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <span>for Design</span>
+                                            </div>
+                                            <div class="review-details">
+                                                <p>by <a href="#"></a> on <span>12 Sep 2018</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="single_user_review">
+                                            <div class="review-rating">
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <span>for Value</span>
+                                            </div>
+                                            <div class="review-details">
+                                                <p>by <a href="#"></a> on <span>12 Sep 2018</span></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="submit_a_review_area mt-50">
+                                <h4>Submit A Review</h4>
+                                <form action="#" method="post">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group d-flex align-items-center">
+                                                <span class="mr-15">Your Ratings:</span>
+                                                <div class="stars">
+                                                    <input type="radio" name="star" class="star-1" id="star-1">
+                                                    <label class="star-1" for="star-1">1</label>
+                                                    <input type="radio" name="star" class="star-2" id="star-2">
+                                                    <label class="star-2" for="star-2">2</label>
+                                                    <input type="radio" name="star" class="star-3" id="star-3">
+                                                    <label class="star-3" for="star-3">3</label>
+                                                    <input type="radio" name="star" class="star-4" id="star-4">
+                                                    <label class="star-4" for="star-4">4</label>
+                                                    <input type="radio" name="star" class="star-5" id="star-5">
+                                                    <label class="star-5" for="star-5">5</label>
+                                                    <span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group">
+                                                <label for="name">Nickname</label>
+                                                <input type="email" class="form-control" id="name" placeholder="Nazrul">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group">
+                                                <label for="options">Reason for your rating</label>
+                                                <select class="form-control" id="options">
+                                                    <option>Quality</option>
+                                                    <option>Value</option>
+                                                    <option>Design</option>
+                                                    <option>Price</option>
+                                                    <option>Others</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="comments">Comments</label>
+                                                <textarea class="form-control" id="comments" rows="5" data-max-length="150"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn alazea-btn">Submit Your Review</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Single Product Details Area End ##### -->
+
+<!-- ##### Related Product Area Start ##### -->
+<div class="related-products-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2>Related Products</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Single Product Area -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-product-area mb-100">
+                    <!-- Product Image -->
+                    <div class="product-img">
+                        <a href="shop-details.html"><img src="{% static 'js_template/img/bg-img/40.png' %}" alt=""></a>
+                        <!-- Product Tag -->
+                        <div class="product-tag">
+                            <a href="#">Hot</a>
+                        </div>
+                        <div class="product-meta d-flex">
+                            <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
+                            <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                            <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                        </div>
+                    </div>
+                    <!-- Product Info -->
+                    <div class="product-info mt-15 text-center">
+                        <a href="shop-details.html">
+                            <p>Whale Fin Sansevieria</p>
+                        </a>
+                        <h6>799.00</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Product Area -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-product-area mb-100">
+                    <!-- Product Image -->
+                    <div class="product-img">
+                        <a href="shop-details.html"><img src="{% static 'js_template/img/bg-img/41.png' %}" alt=""></a>
+                        <div class="product-meta d-flex">
+                            <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
+                            <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                            <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                        </div>
+                    </div>
+                    <!-- Product Info -->
+                    <div class="product-info mt-15 text-center">
+                        <a href="shop-details.html">
+                            <p>Little Fiddle Leaf Fig
+                            </p>
+                        </a>
+                        <h6>799.00</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Product Area -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-product-area mb-100">
+                    <!-- Product Image -->
+                    <div class="product-img">
+                        <a href="shop-details.html"><img src="{% static 'js_template/img/bg-img/42.png' %}" alt=""></a>
+                        <div class="product-meta d-flex">
+                            <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
+                            <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                            <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                        </div>
+                    </div>
+                    <!-- Product Info -->
+                    <div class="product-info mt-15 text-center">
+                        <a href="shop-details.html">
+                            <p>Prickly Party Collection
+                            </p>
+                        </a>
+                        <h6>699.00</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Product Area -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-product-area mb-100">
+                    <!-- Product Image -->
+                    <div class="product-img">
+                        <a href="shop-details.html"><img src="{% static 'js_template/img/bg-img/43.png' %}" alt=""></a>
+                        <!-- Product Tag -->
+                        <div class="product-tag sale-tag">
+                            <a href="#">Hot</a>
+                        </div>
+                        <div class="product-meta d-flex">
+                            <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
+                            <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                            <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                        </div>
+                    </div>
+                    <!-- Product Info -->
+                    <div class="product-info mt-15 text-center">
+                        <a href="shop-details.html">
+                            <p>Mandevilla</p>
+                        </a>
+                        <h6>599.00</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- ##### Related Product Area End ##### -->
+
+
+<!-- ##### Footer Area Start ##### -->
+<footer id="footer" style="padding-top: 5rem;">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>BloomFlow</h3>
+                    <p>
+                        Ahmedabad, Gujarat, India <br><br>
+                        <strong>Phone:</strong> +91 95452 45150<br>
+                        <strong>Email:</strong> info@bloomflow.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/about_us">About</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/about">Working at Bloomflow</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Careers</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Press</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Corporate Orders</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Refer a Friend</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/communities">Our Guarantee</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>SUPPORT</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Help + FAQs</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Track Your Order</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Shipping</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Returns</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/app1/contact_us">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>PLANT QUESTIONS?</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Plant Care Tips</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Plant Life Blog</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Contact the Grow-How™
+                            Team</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="/community/activity">Plant Care App(future
+                            extension)</a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-4">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Bloomflow</span></strong>. All Rights Reserved
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<!-- ##### Footer Area End ##### -->
+
+
+<!-- ##### All Javascript Files ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="{% static 'js_template/jquery/jquery-2.2.4.min.js' %}"></script>
+<!-- Popper js -->
+<script src="{% static 'js_template/bootstrap/popper.min.js' %}"></script>
+<!-- Bootstrap js -->
+<script src="{% static 'js_template/bootstrap/bootstrap.min.js' %}"></script>
+<!-- All Plugins js -->
+<script src="{% static 'js_template/plugins/plugins.js' %}"></script>
+<!-- Active js -->
+<script src="{% static 'js_template/active.js' %}"></script>
+
+</body>
+
+</html>

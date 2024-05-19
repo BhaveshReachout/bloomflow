@@ -1,0 +1,193 @@
+{% extends 'app1/master.html' %}
+{% load static %}
+{% block head %}
+
+{% endblock %}
+
+{% block container %}
+<!-- end menu-dropdown -->
+<body>
+<!-- ======= Hero Section ======= -->
+<!--<section id="hero" class="d-flex align-items-center justify-content-center">-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <!--        <img src="https://source.unsplash.com/1600x900/?sports,eqipments"  alt="First slide">-->
+                        <img src="{% static 'img/HOME IMAGE OF BLOOMFLOW.jpg' %}" style="width:100%; height:550px"
+                             alt="First slide">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;">
+                            <h1 style="font-size: 50px;">Bring Your Space to Life</h1>
+                        </div>
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--</section>&lt;!&ndash; End Hero &ndash;&gt;-->
+
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <!--      <h2>Community</h2>-->
+            <p>Find Your Perfect Plant</p>
+        </div>
+
+        <!--    <div class="row" data-aos="fade-up" data-aos-delay="100">-->
+        <!--      <div class="col-lg-12">-->
+        <!--        <ul id="portfolio-flters">-->
+        <!--          <li data-filter="*" class="filter-active">All</li>-->
+        <!--          <li data-filter=".filter-cricket">Cricket</li>-->
+        <!--          <li data-filter=".filter-football">Football</li>-->
+        <!--          <li data-filter=".filter-kabaddi">Kabaddi</li>-->
+        <!--        </ul>-->
+        <!--      </div>-->
+        <!--    </div>-->
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-cricket">
+                <div class="portfolio-details">
+                    <img src="{% static 'img/plant-care-set.jpeg' %}" height="300" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <a href="/app1/plants_detail/"><h4 style="text-align:center; font-size: 30px;opacity:1; ">
+                            Plant Care Gift Sets </h4></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-cricket">
+                <div class="portfolio-details">
+                    <img src="{% static 'img/gifts-over.jpg' %}" height="300" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <a href="portfolio-details.html"><h4 style="text-align:center; font-size: 30px;opacity:1; ">
+                            Large + XL </h4></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-cricket">
+                <div class="portfolio-details">
+                    <img src="{% static 'img/pets_friendly.jpg' %}" height="300" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <a href="portfolio-details.html"><h4 style=" text-align:center; font-size: 30px;opacity:1; ">
+                            Pet-Friendly</h4></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="section-title">
+            <h3 style="margin-top: 30px;  margin-bottom: 70px;display: block;width: 100%;height: 3px;background: #eb5d1e;bottom: 0;left: calc(50% - 30px);"></h3>
+            <h3 style="text-align: left; font-size: 45px;">New Arrivals</h3>
+        </div>
+
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-cricket">
+                <div class="portfolio-wrap">
+                    <img src="{% static 'img/plant-care-set.jpeg' %}" height="300" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <a href="portfolio-details.html"><h4 style="font-size: 30px;opacity:0.7; ">Plant Care Gift Sets
+                            749/-</h4></a>
+                        <a href="portfolio-details.html"><h4 style="font-size: 20px;opacity:1; ">Add to Cart</h4></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-cricket">
+                <div class="portfolio-wrap">
+                    <img src="{% static 'img/gifts-over.jpg' %}" height="300" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <a href="portfolio-details.html"><h4 style="font-size: 30px;opacity:0.7; ">Large + XL 999/-</h4>
+                        </a>
+                        <a href="portfolio-details.html"><h4 style="font-size: 20px;opacity:1; ">Add to Cart</h4></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-cricket">
+                <div class="portfolio-wrap">
+                    <img src="{% static 'img/pets_friendly.jpg' %}" height="300" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <a href="portfolio-details.html"><h4 style="font-size: 30px;opacity:0.7; ">Rabbit Foot Fern
+                            799/-</h4></a>
+                        <a href="portfolio-details.html"><h4 style="font-size: 20px;opacity:1; ">Add to Cart</h4></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section-title">
+            <h3 style="margin-top: 30px;  margin-bottom: 30px;display: block;width: 100%;height: 3px;background: #eb5d1e;bottom: 0;left: calc(50% - 30px);"></h3>
+        </div>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-details" style="width:35%; padding-top:0px">
+                <h5>HOW WE PROTECT YOUR PLANT</h5>
+                <h1>A Houseplant’s Journey Home</h1>
+                <p>Follow along on a Bird of Paradise’s trip from our greenhouse to your home, and see how we care for
+                    your plant along the journey.</p>
+                <button data-text="Learn More">Learn More</button>
+            </div>
+            <div class="portfolio-details" style="width:65%; padding-top:0px; height:10%;">
+                    <img src="{% static 'img/plants_jornery.jpg' %}" class="img-fluid" alt="">
+            </div>
+        </div>
+
+
+        <div class="section-title">
+            <h3 style="margin-top: 30px;  margin-bottom: 30px;display: block;width: 100%;height: 3px;background: #eb5d1e;bottom: 0;left: calc(50% - 30px);"></h3>
+        </div>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-details" style="width:65%; padding-top:0px; height:10%;">
+                <img src="{% static 'img/low_light_plants.png' %}" class="img-fluid" alt="">
+            </div>
+            <div class="portfolio-details" style="width:35%; padding-top:0px">
+                <h5>LOW LIGHT? NO PROBLEM</h5>
+                <h1>Our Favorite Low-Light Plants</h1>
+                <p>For those spaces with less than ideal lighting, we have you covered with low-light tolerant plants
+                    for any time of year.</p>
+                <button data-text="Learn More">Learn More</button>
+            </div>
+
+        </div>
+
+
+        <div class="section-title">
+            <h3 style="margin-top: 30px;  margin-bottom: 30px;display: block;width: 100%;height: 3px;background: #eb5d1e;bottom: 0;left: calc(50% - 30px);"></h3>
+        </div>
+        <div style="text-align:center;">
+            <h2>Premium Plants.</h2>
+            <h2>Free Shipping Over $75.</h2>
+            <h2>30 Day Guarantee.</h2>
+        </div>
+
+
+    </div>
+</section><!-- End Portfolio Section -->
+
+</body>
+{% endblock %}
